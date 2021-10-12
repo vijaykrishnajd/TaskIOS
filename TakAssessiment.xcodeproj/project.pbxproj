@@ -16,6 +16,18 @@
 		813B04A82713FDC200F484B2 /* TakAssessimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04A72713FDC200F484B2 /* TakAssessimentTests.swift */; };
 		813B04B22713FDC200F484B2 /* TakAssessimentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04B12713FDC200F484B2 /* TakAssessimentUITests.swift */; };
 		813B04B42713FDC200F484B2 /* TakAssessimentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04B32713FDC200F484B2 /* TakAssessimentUITestsLaunchTests.swift */; };
+		813B04C12713FDFE00F484B2 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04C02713FDFE00F484B2 /* TaskViewController.swift */; };
+		813B04C52713FE5000F484B2 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04C32713FE5000F484B2 /* TaskTableViewCell.swift */; };
+		813B04C62713FE5000F484B2 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813B04C42713FE5000F484B2 /* TaskTableViewCell.xib */; };
+		813B04CB2714072C00F484B2 /* TaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04C92714072C00F484B2 /* TaskCollectionViewCell.swift */; };
+		813B04CC2714072D00F484B2 /* TaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813B04CA2714072C00F484B2 /* TaskCollectionViewCell.xib */; };
+		813B04CE2714149A00F484B2 /* PropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04CD2714149A00F484B2 /* PropertyViewController.swift */; };
+		813B04D4271420E500F484B2 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 813B04D3271420E500F484B2 /* data.json */; };
+		813B04D72714304D00F484B2 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04D62714304D00F484B2 /* ImageModel.swift */; };
+		813B04DA27144E3A00F484B2 /* DashBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B04D827144E3A00F484B2 /* DashBoardTableViewCell.swift */; };
+		813B04DB27144E3B00F484B2 /* DashBoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813B04D927144E3A00F484B2 /* DashBoardTableViewCell.xib */; };
+		81EDE8E3271547D900F448D1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EDE8E1271547D900F448D1 /* CollectionViewCell.swift */; };
+		81EDE8E4271547D900F448D1 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81EDE8E2271547D900F448D1 /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +61,18 @@
 		813B04AD2713FDC200F484B2 /* TakAssessimentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TakAssessimentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813B04B12713FDC200F484B2 /* TakAssessimentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakAssessimentUITests.swift; sourceTree = "<group>"; };
 		813B04B32713FDC200F484B2 /* TakAssessimentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakAssessimentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		813B04C02713FDFE00F484B2 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		813B04C32713FE5000F484B2 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		813B04C42713FE5000F484B2 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		813B04C92714072C00F484B2 /* TaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCollectionViewCell.swift; sourceTree = "<group>"; };
+		813B04CA2714072C00F484B2 /* TaskCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		813B04CD2714149A00F484B2 /* PropertyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyViewController.swift; sourceTree = "<group>"; };
+		813B04D3271420E500F484B2 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		813B04D62714304D00F484B2 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		813B04D827144E3A00F484B2 /* DashBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashBoardTableViewCell.swift; sourceTree = "<group>"; };
+		813B04D927144E3A00F484B2 /* DashBoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashBoardTableViewCell.xib; sourceTree = "<group>"; };
+		81EDE8E1271547D900F448D1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		81EDE8E2271547D900F448D1 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +123,14 @@
 		813B048F2713FDB700F484B2 /* TakAssessiment */ = {
 			isa = PBXGroup;
 			children = (
+				813B04D527142F7200F484B2 /* Models */,
+				813B04D3271420E500F484B2 /* data.json */,
+				813B04C22713FE3300F484B2 /* Classes */,
 				813B04902713FDB700F484B2 /* AppDelegate.swift */,
 				813B04922713FDB700F484B2 /* SceneDelegate.swift */,
 				813B04942713FDB700F484B2 /* ViewController.swift */,
+				813B04C02713FDFE00F484B2 /* TaskViewController.swift */,
+				813B04CD2714149A00F484B2 /* PropertyViewController.swift */,
 				813B04962713FDB700F484B2 /* Main.storyboard */,
 				813B04992713FDC100F484B2 /* Assets.xcassets */,
 				813B049B2713FDC100F484B2 /* LaunchScreen.storyboard */,
@@ -125,6 +154,29 @@
 				813B04B32713FDC200F484B2 /* TakAssessimentUITestsLaunchTests.swift */,
 			);
 			path = TakAssessimentUITests;
+			sourceTree = "<group>";
+		};
+		813B04C22713FE3300F484B2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				813B04C32713FE5000F484B2 /* TaskTableViewCell.swift */,
+				813B04C92714072C00F484B2 /* TaskCollectionViewCell.swift */,
+				81EDE8E1271547D900F448D1 /* CollectionViewCell.swift */,
+				813B04D827144E3A00F484B2 /* DashBoardTableViewCell.swift */,
+				81EDE8E2271547D900F448D1 /* CollectionViewCell.xib */,
+				813B04D927144E3A00F484B2 /* DashBoardTableViewCell.xib */,
+				813B04CA2714072C00F484B2 /* TaskCollectionViewCell.xib */,
+				813B04C42713FE5000F484B2 /* TaskTableViewCell.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		813B04D527142F7200F484B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				813B04D62714304D00F484B2 /* ImageModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +283,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813B04C62713FE5000F484B2 /* TaskTableViewCell.xib in Resources */,
+				813B04D4271420E500F484B2 /* data.json in Resources */,
 				813B049D2713FDC100F484B2 /* LaunchScreen.storyboard in Resources */,
 				813B049A2713FDC100F484B2 /* Assets.xcassets in Resources */,
+				813B04CC2714072D00F484B2 /* TaskCollectionViewCell.xib in Resources */,
 				813B04982713FDB700F484B2 /* Main.storyboard in Resources */,
+				81EDE8E4271547D900F448D1 /* CollectionViewCell.xib in Resources */,
+				813B04DB27144E3B00F484B2 /* DashBoardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +315,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81EDE8E3271547D900F448D1 /* CollectionViewCell.swift in Sources */,
+				813B04CE2714149A00F484B2 /* PropertyViewController.swift in Sources */,
 				813B04952713FDB700F484B2 /* ViewController.swift in Sources */,
+				813B04DA27144E3A00F484B2 /* DashBoardTableViewCell.swift in Sources */,
+				813B04C12713FDFE00F484B2 /* TaskViewController.swift in Sources */,
+				813B04C52713FE5000F484B2 /* TaskTableViewCell.swift in Sources */,
+				813B04CB2714072C00F484B2 /* TaskCollectionViewCell.swift in Sources */,
 				813B04912713FDB700F484B2 /* AppDelegate.swift in Sources */,
 				813B04932713FDB700F484B2 /* SceneDelegate.swift in Sources */,
+				813B04D72714304D00F484B2 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

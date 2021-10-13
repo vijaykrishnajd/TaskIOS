@@ -60,6 +60,7 @@ extension PropertyViewController : UITableViewDataSource{
        let price = self.userdataList["price"] as? String
         let currency = self.userdataList["currency"] as? String
         cell.priceLabel.text = "\(price ?? "") \(currency ?? "")"
+        cell.selectionStyle = .none
         cell.relodeCollectionView()
         return cell
     }

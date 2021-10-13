@@ -69,6 +69,7 @@ extension TaskViewController : UITableViewDataSource{
         }
         cell.likedButton.tag = indexPath.row
         cell.likedButton.addTarget(self, action: #selector(connected(sender:)), for: .touchUpInside)
+        cell.selectionStyle = .none
         cell.relodeCollectionView()
         return cell
     }

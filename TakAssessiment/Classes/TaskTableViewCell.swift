@@ -9,7 +9,11 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     var userdataList = [String]()
-    @IBOutlet weak var propertyNameLabel: UILabel!
+    @IBOutlet weak var propertyNameLabel: UILabel!{
+        didSet{
+            self.propertyNameLabel.font = .boldSystemFont(ofSize: 25)
+        }
+    }
     @IBOutlet weak var locationImageButton: UIButton!{
         didSet{
             locationImageButton .setImage(UIImage(named: "location.pdf"), for: .normal)
@@ -27,7 +31,12 @@ class TaskTableViewCell: UITableViewCell {
     
       }
   }
-    @IBOutlet weak var propertyLocationLabel: UILabel!
+    @IBOutlet weak var propertyLocationLabel: UILabel!{
+        didSet{
+            self.propertyLocationLabel.textColor = UIColor(red: 31/225, green: 23/225, blue: 112/225, alpha: 1.0)
+
+        }
+    }
    
     @IBOutlet weak var userCollectionView: UICollectionView!
     override func awakeFromNib() {

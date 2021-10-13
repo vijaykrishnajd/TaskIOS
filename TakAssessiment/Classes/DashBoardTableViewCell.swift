@@ -16,16 +16,31 @@ class DashBoardTableViewCell: UITableViewCell {
             self.priceLabel.backgroundColor = .white
         }
     }
+    @IBOutlet weak var descriptionLabel : UILabel!{
+        didSet{
+            self.descriptionLabel.textColor = .blue
+            self.descriptionLabel.text = "About Property"
+        }
+    }
     @IBOutlet weak var locationImageButton: UIButton!{
         didSet{
             locationImageButton .setImage(UIImage(named: "location.pdf"), for: .normal)
 
         }
     }
-    @IBOutlet weak var postLocationLabel: UILabel!
+    @IBOutlet weak var postLocationLabel: UILabel!{
+        didSet{
+            self.postLocationLabel.textColor = UIColor(red: 31/225, green: 23/225, blue: 112/225, alpha: 1.0)
+
+        }
+    }
    
     @IBOutlet weak var aboutLabel : UILabel!
-    @IBOutlet weak var postNameLabel: UILabel!
+    @IBOutlet weak var postNameLabel: UILabel!{
+        didSet{
+            self.postNameLabel.font = .boldSystemFont(ofSize: 25)
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         self.proertyCollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")

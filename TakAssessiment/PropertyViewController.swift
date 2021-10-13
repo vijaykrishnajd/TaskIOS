@@ -9,7 +9,11 @@ import UIKit
 
 class PropertyViewController: UIViewController {
     var userdataList = [String:Any]()
-    @IBOutlet weak var posteTableView : UITableView!
+    @IBOutlet weak var posteTableView : UITableView!{
+        didSet{
+            self.posteTableView.backgroundColor = .clear
+        }
+    }
     @IBOutlet weak var backButton : UIButton!{
         didSet{
             backButton.setImage(UIImage(named: "leftArrow.pdf"), for: .normal)

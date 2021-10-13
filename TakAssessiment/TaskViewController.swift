@@ -9,7 +9,11 @@ import UIKit
 
 class TaskViewController: UIViewController {
     var userdataList = [[String:Any]]()
-    @IBOutlet weak var taskTableView : UITableView!
+    @IBOutlet weak var taskTableView : UITableView!{
+        didSet{
+            self.taskTableView.backgroundColor = .clear
+        }
+    }
     func relodeCollectionView(){
         self.taskTableView.reloadData()
         print(userdataList)

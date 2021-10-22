@@ -30,7 +30,13 @@ class TaskViewController: UIViewController {
                   let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let person = jsonResult["properties"] as? [[String:Any]] {
                             // do stuff
-                       userdataList = person
+                    let dataget =  UserDefaults.standard.object(forKey: "userData") as? [[String : Any]] ?? []
+                    if dataget.count != 0 {
+                    userdataList = dataget
+                    }
+                    else{
+                        userdataList = person
+                    }
                       print(userdataList)
                   }
               } catch {
@@ -43,21 +49,22 @@ class TaskViewController: UIViewController {
         if userdataList[sender.tag]["favourite"] as? String == "0" {
             userdataList[sender.tag]["favourite"] = "1"
         }
-        else{
+       else{
             userdataList[sender.tag]["favourite"] = "0"
-           
         }
+        UserDefaults.standard.set(userdataList, forKey: "userData")
+        UserDefaults.standard.synchronize()
         self.taskTableView.reloadData()
        print(buttonTag)
     }
     
 }
 extension TaskViewController : UITableViewDataSource{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userdataList.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
         cell.userdataList = self.userdataList[indexPath.row]["images"] as?  [String] ?? []
         cell.propertyNameLabel.text = self.userdataList[indexPath.row]["name"] as? String
@@ -65,12 +72,14 @@ extension TaskViewController : UITableViewDataSource{
        let price = self.userdataList[indexPath.row]["price"] as? String
         let currency = self.userdataList[indexPath.row]["currency"] as? String
         cell.properyPriceLabel.text = "\(price ?? "") \(currency ?? "")"
+      
         if userdataList[indexPath.row]["favourite"] as? String == "0" {
             cell.likedButton.setImage(UIImage(named: "notsaved.pdf"), for: .normal)
         }
-        if userdataList[indexPath.row]["favourite"] as? String == "1" {
-            cell.likedButton.setImage(UIImage(named: "saved.pdf"), for: .normal)
-        }
+            if userdataList[indexPath.row]["favourite"] as? String == "1" {
+                cell.likedButton.setImage(UIImage(named: "saved.pdf"), for: .normal)
+            }
+        
         cell.likedButton.tag = indexPath.row
         cell.likedButton.addTarget(self, action: #selector(connected(sender:)), for: .touchUpInside)
         cell.selectionStyle = .none
@@ -79,13 +88,15 @@ extension TaskViewController : UITableViewDataSource{
     }
 }
 extension TaskViewController : UITableViewDelegate{
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "PropertyViewController") as! PropertyViewController
         vc.userdataList = userdataList[indexPath.row]
-       
         self.navigationController?.pushViewController(vc, animated: true)
         }
+    
+    
     }
       
         

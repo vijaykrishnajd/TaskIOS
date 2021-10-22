@@ -64,12 +64,21 @@ extension TaskTableViewCell : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: indexPath) as! TaskCollectionViewCell
-      
         if   let url = URL(string: userdataList[indexPath.row]){
         cell.propertyImageView.load(url: url )
         }
+        
        return cell
 }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "PropertyViewController") as! PropertyViewController
+        vc.navigationController?.pushViewController(vc, animated: true)
+    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let currentNavCon = self.window?.rootViewController!.navigationController
+//        currentNavCon?.pushViewController(PropertyViewController(), animated: true)
+//    }
 }
 extension TaskTableViewCell : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -17,7 +17,6 @@ class PropertyViewController: UIViewController {
     @IBOutlet weak var backButton : UIButton!{
         didSet{
             backButton.setImage(UIImage(named: "leftArrow.pdf"), for: .normal)
-
         }
     }
     @IBOutlet weak var likedButton : UIButton!{
@@ -62,7 +61,7 @@ extension PropertyViewController : UITableViewDataSource{
         cell.postLocationLabel.text = self.userdataList["place"] as? String
         cell.aboutLabel.text = self.userdataList["about"] as? String
        let price = self.userdataList["price"] as? String
-        let currency = self.userdataList["currency"] as? String
+       let currency = self.userdataList["currency"] as? String
         cell.priceLabel.text = "\(price ?? "") \(currency ?? "")"
         cell.selectionStyle = .none
         cell.relodeCollectionView()

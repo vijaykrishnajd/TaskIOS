@@ -9,6 +9,7 @@ import UIKit
 
 class PropertyViewController: UIViewController {
     var userdataList = [String:Any]()
+    
     @IBOutlet weak var posteTableView : UITableView!{
         didSet{
             self.posteTableView.backgroundColor = .clear
@@ -31,23 +32,23 @@ class PropertyViewController: UIViewController {
         }
     }
     @objc func connected(sender: UIButton){
-       
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.posteTableView.register(UINib(nibName: "DashBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "DashBoardTableViewCell")
         self.posteTableView.dataSource = self
         self.navigationController?.navigationBar.isHidden = true
-
-
+        
+        
         // Do any additional setup after loading the view.
     }
-   
+    
     @IBAction func backButtonClicked(_sender:UIButton){
         self.navigationController?.popViewController(animated: true)
     }
     
-
+    
 }
 extension PropertyViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,19 +61,19 @@ extension PropertyViewController : UITableViewDataSource{
         cell.postNameLabel.text = self.userdataList["name"] as? String
         cell.postLocationLabel.text = self.userdataList["place"] as? String
         cell.aboutLabel.text = self.userdataList["about"] as? String
-       let price = self.userdataList["price"] as? String
-       let currency = self.userdataList["currency"] as? String
+        let price = self.userdataList["price"] as? String
+        let currency = self.userdataList["currency"] as? String
         cell.priceLabel.text = "\(price ?? "") \(currency ?? "")"
         cell.selectionStyle = .none
         cell.relodeCollectionView()
         return cell
     }
-
+    
 }
 
-      
-        
-    
-    
+
+
+
+
 
 

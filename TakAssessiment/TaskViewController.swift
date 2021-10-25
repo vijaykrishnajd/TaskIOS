@@ -9,7 +9,7 @@ import UIKit
 
 class TaskViewController: UIViewController {
     var userdataList = [[String:Any]]()
-    var delegate : taskCollectiomViewCellDelegate?
+    var delegate : TaskCollectionViewCellDelegate?
     @IBOutlet weak var taskTableView : UITableView!{
         didSet{
             self.taskTableView.backgroundColor = .clear
@@ -19,12 +19,7 @@ class TaskViewController: UIViewController {
         self.taskTableView.reloadData()
         print(userdataList)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.taskTableView.dataSource = self
-        self.taskTableView.delegate = self
-        
-        self.taskTableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
+     func getUsersData() {
         // Do any additional setup after loading the view.
         if let path = Bundle.main.path(forResource: "data", ofType: "json") {
             do {
@@ -38,6 +33,8 @@ class TaskViewController: UIViewController {
                     }
                     else{
                         userdataList = person
+                        UserDefaults.standard.set(userdataList, forKey: "userData")
+                        UserDefaults.standard.synchronize()
                     }
                     print(userdataList)
                 }
@@ -47,6 +44,16 @@ class TaskViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.taskTableView.dataSource = self
+        self.taskTableView.delegate = self
+        self.taskTableView.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.getUsersData()
+        self.taskTableView.reloadData()
+    }
     @objc func connected(sender: UIButton){
         let buttonTag = sender.tag
         if userdataList[sender.tag]["favourite"] as? String == "0" {
@@ -60,7 +67,6 @@ class TaskViewController: UIViewController {
         self.taskTableView.reloadData()
         print(buttonTag)
     }
-    
 }
 extension TaskViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,12 +87,12 @@ extension TaskViewController : UITableViewDataSource{
         if userdataList[indexPath.row]["favourite"] as? String == "1" {
             cell.likedButton.setImage(UIImage(named: "saved.pdf"), for: .normal)
         }
-        
         cell.likedButton.tag = indexPath.row
         cell.likedButton.addTarget(self, action: #selector(connected(sender:)), for: .touchUpInside)
         cell.selectionStyle = .none
         cell.relodeCollectionView()
-        
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
     }
 }
@@ -95,10 +101,16 @@ extension TaskViewController : UITableViewDelegate{
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "PropertyViewController") as! PropertyViewController
         vc.userdataList = userdataList[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+       self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+}
+extension TaskViewController: TaskCollectionViewCellDelegate{
+    func navigateToPropertyViewController(indexPath: IndexPath){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "PropertyViewController") as! PropertyViewController
+        vc.userdataList = userdataList[indexPath.row]
+       self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 

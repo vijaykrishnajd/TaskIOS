@@ -9,7 +9,6 @@ import UIKit
 
 class DashBoardTableViewCell: UITableViewCell {
     var userdataList = [String]()
-    
     @IBOutlet weak var proertyCollectionView: UICollectionView!
     @IBOutlet weak var priceLabel: UILabel!{
         didSet{

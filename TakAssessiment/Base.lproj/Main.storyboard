@@ -78,6 +78,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="likedButtonClickedWith_sender:" destination="tl9-QF-pZZ" eventType="touchUpInside" id="rcA-40-AL7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tra-GZ-epb">
                                 <rect key="frame" x="10" y="51" width="67" height="31"/>

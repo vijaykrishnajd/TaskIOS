@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol taskCollectiomViewCellDelegate {
-    func navigateToPropertyViewController()
+protocol TaskCollectionViewCellDelegate {
+    func navigateToPropertyViewController(indexPath: IndexPath)
 }
 class TaskTableViewCell: UITableViewCell {
     var userdataList = [String]()
-    var delegate : taskCollectiomViewCellDelegate?
+    var delegate : TaskCollectionViewCellDelegate?
     
     
     @IBOutlet weak var propertyNameLabel: UILabel!{
@@ -34,7 +34,6 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet  weak var likedButton : UIButton!{
         didSet{
             likedButton.setImage(UIImage(named: "notsaved.pdf"), for: .normal)
-            
         }
     }
     @IBOutlet weak var propertyLocationLabel: UILabel!{
@@ -45,6 +44,7 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     @IBOutlet weak var userCollectionView: UICollectionView!
+    var indexPath = IndexPath()
     override func awakeFromNib() {
         super.awakeFromNib()
         self.userCollectionView.register(UINib(nibName: "TaskCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TaskCollectionViewCell")
@@ -62,6 +62,9 @@ class TaskTableViewCell: UITableViewCell {
         print(userdataList)
     }
     func navigateToPropertyViewController(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "PropertyViewController") as! PropertyViewController
+        vc.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -75,12 +78,11 @@ extension TaskTableViewCell : UICollectionViewDataSource{
         if   let url = URL(string: userdataList[indexPath.row]){
             cell.propertyImageView.load(url: url )
         }
-        
+
         return cell
     }
 }
 extension TaskTableViewCell : UICollectionViewDelegateFlowLayout{
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = systemLayoutSizeFitting(
             .init(width: self.frame.size.width, height: self.frame.height),
@@ -88,8 +90,8 @@ extension TaskTableViewCell : UICollectionViewDelegateFlowLayout{
         return size
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            self.delegate?.navigateToPropertyViewController()
-
+       
+        self.delegate?.navigateToPropertyViewController(indexPath: self.indexPath)
     }
     
 }

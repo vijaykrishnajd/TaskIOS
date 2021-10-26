@@ -64,7 +64,7 @@ class TaskViewController: UIViewController {
         }
         UserDefaults.standard.set(userdataList, forKey: "userData")
         UserDefaults.standard.synchronize()
-        self.taskTableView.reloadData()
+        self.taskTableView.reloadRows(at: [[0,buttonTag]], with: .none)
         print(buttonTag)
     }
 }

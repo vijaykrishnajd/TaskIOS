@@ -48,6 +48,7 @@ class TaskTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.userCollectionView.register(UINib(nibName: "TaskCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TaskCollectionViewCell")
+        self.userCollectionView.isPagingEnabled = true
         self.userCollectionView.dataSource = self
         self.userCollectionView.delegate = self
         
@@ -57,8 +58,13 @@ class TaskTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    var reload = false
     func relodeCollectionView(){
-        self.userCollectionView.reloadData()
+        if !self.reload{
+            self.reload = true
+            self.userCollectionView.reloadData()
+        }
+//        self.userCollectionView.scrollToItem(at: [0,0], at: .left, animated: false)
         print(userdataList)
     }
     func navigateToPropertyViewController(){
@@ -75,19 +81,24 @@ extension TaskTableViewCell : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TaskCollectionViewCell", for: indexPath) as! TaskCollectionViewCell
-        if   let url = URL(string: userdataList[indexPath.row]){
-            cell.propertyImageView.load(url: url )
-        }
-
+        cell.propertyImageView.loadImageFromUrl(urlString: self.userdataList[indexPath.row])
+        cell.propertyImageView.contentMode = .scaleAspectFill
         return cell
     }
 }
 extension TaskTableViewCell : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = systemLayoutSizeFitting(
-            .init(width: self.frame.size.width, height: self.frame.height),
-            withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+        let size = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         return size
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        

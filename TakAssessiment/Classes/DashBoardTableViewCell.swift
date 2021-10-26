@@ -44,6 +44,7 @@ class DashBoardTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.proertyCollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
         self.proertyCollectionView.dataSource = self
+        self.proertyCollectionView.isPagingEnabled = true
         self.proertyCollectionView.delegate = self
         // Initialization code
     }
@@ -66,10 +67,7 @@ extension DashBoardTableViewCell : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        if   let url = URL(string: userdataList[indexPath.row]){
-            cell.propertyImageView.load(url: url )
-        }
+        cell.propertyImageView.loadImageFromUrl(urlString: self.userdataList[indexPath.row])
         return cell
     }
 }
